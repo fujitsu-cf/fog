@@ -466,21 +466,21 @@ module Fog
 
       scope = {}
 
-      if project_name || project_id
-        scope[:project] = if project_id.nil? then
-                            if project_domain || project_domain_id
-                              {:name => project_name, :domain => project_domain_id.nil? ? {:name => project_domain} : {:id => project_domain_id}}
-                            else
-                              {:name => project_name, :domain => domain_id.nil? ? {:name => domain_name} : {:id => domain_id}}
-                            end
-                          else
-                            {:id => project_id}
-                          end
-      elsif domain_name || domain_id
-        scope[:domain] = domain_id.nil? ? {:name => domain_name} : {:id => domain_id}
-      else
-        # unscoped token
-      end
+#      if project_name || project_id
+#        scope[:project] = if project_id.nil? then
+#                            if project_domain || project_domain_id
+#                              {:name => project_name, :domain => project_domain_id.nil? ? {:name => project_domain} : {:id => project_domain_id}}
+#                            else
+#                              {:name => project_name, :domain => domain_id.nil? ? {:name => domain_name} : {:id => domain_id}}
+#                            end
+#                          else
+#                            {:id => project_id}
+#                          end
+#      elsif domain_name || domain_id
+#        scope[:domain] = domain_id.nil? ? {:name => domain_name} : {:id => domain_id}
+#      else
+#        # unscoped token
+#      end
 
       if auth_token
         request_body[:auth][:identity] = {
