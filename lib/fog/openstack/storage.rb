@@ -8,7 +8,7 @@ module Fog
       recognizes :persistent, :openstack_service_name,
                  :openstack_service_type, :openstack_tenant,
                  :openstack_region, :openstack_temp_url_key,
-                 :openstack_endpoint_type
+                 :openstack_endpoint_type, :openstack_domain_name
 
       model_path 'fog/openstack/models/storage'
       model       :directory
@@ -86,6 +86,7 @@ module Fog
           @openstack_service_name = options[:openstack_service_name]
           @openstack_region       = options[:openstack_region]
           @openstack_tenant       = options[:openstack_tenant]
+          @openstack_domain_name  = options[:openstack_domain_name]
           @connection_options     = options[:connection_options] || {}
           @openstack_temp_url_key = options[:openstack_temp_url_key]
           @openstack_endpoint_type = options[:openstack_endpoint_type] || 'publicURL'
@@ -188,6 +189,7 @@ module Fog
               :openstack_service_name => @openstack_service_name,
               :openstack_region => @openstack_region,
               :openstack_tenant => @openstack_tenant,
+              :openstack_domain_name => @openstack_domain_name,
               :openstack_endpoint_type => @openstack_endpoint_type
             }
 
