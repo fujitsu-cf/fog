@@ -87,7 +87,7 @@ module Fog
           @openstack_region       = options[:openstack_region]
           @openstack_tenant       = options[:openstack_tenant]
           @openstack_domain_name  = options[:openstack_domain_name]
-          @connection_options     = options[:connection_options] || {}
+          @connection_options     = options[:connection_options] || {omit_default_port: true}
           @openstack_temp_url_key = options[:openstack_temp_url_key]
           @openstack_endpoint_type = options[:openstack_endpoint_type] || 'publicURL'
           authenticate
